@@ -1,7 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faClock, faUser, faCar, faMotorcycle, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
 function LandingPage() {
+  const location = useLocation();
+
   return (
     <div className="flex flex-col h-screen bg-gray-50">
       {/* Top Navigation */}
@@ -16,12 +20,6 @@ function LandingPage() {
             <img src="https://img.icons8.com/ios/25/000000/search--v1.png" alt="Search" className="h-4 w-4 mr-1" />
             <span className="text-gray-500">Where to?</span>
           </Link>
-          <div className="bg-white rounded-full flex items-center justify-center px-4 py-2">
-            <button className="flex items-center">
-              <img src="https://img.icons8.com/ios/25/000000/clock.png" alt="Clock" className="h-4 w-4 mr-1" />
-            Now
-            <img src="https://img.icons8.com/ios/20/000000/sort-down.png" alt="Dropdown" className="h-3 w-3 ml-1" />
-          </button>
         </div>
       </div>
 
@@ -51,16 +49,16 @@ function LandingPage() {
       <div className="px-4 py-4">
         <h2 className="text-lg font-semibold mb-2">Suggestions</h2>
         <div className="flex justify-between">
-          <div className="flex flex-col items-center bg-blue-100 rounded-lg p-2 w-24">
-            <img src="https://img.icons8.com/ios/50/000000/car--v1.png" alt="Ride" className="h-8 w-8" />
+          <div className="flex flex-col items-center bg-gray-200 rounded-lg p-2 w-24 hover:scale-105">
+            <FontAwesomeIcon icon={faCar} className="h-8 w-8" />
             <span className="text-sm">Ride</span>
           </div>
-          <div className="flex flex-col items-center bg-green-100 rounded-lg p-2 w-24">
-            <img src="https://img.icons8.com/ios/50/000000/scooter.png" alt="2-Wheels" className="h-8 w-8" />
+          <div className="flex flex-col items-center bg-gray-200 rounded-lg p-2 w-24 hover:scale-105">
+            <FontAwesomeIcon icon={faMotorcycle} className="h-8 w-8" />
             <span className="text-sm">2-Wheels</span>
           </div>
-          <div className="flex flex-col items-center bg-yellow-100 rounded-lg p-2 w-24">
-            <img src="https://img.icons8.com/ios/50/000000/calendar.png" alt="Reserve" className="h-8 w-8" />
+          <div className="flex flex-col items-center bg-gray-200 rounded-lg p-2 w-24 hover:scale-105">
+            <FontAwesomeIcon icon={faCalendarAlt} className="h-8 w-8" />
             <span className="text-sm">Reserve</span>
           </div>
         </div>
@@ -77,16 +75,16 @@ function LandingPage() {
       {/* Bottom Navigation */}
       <div className="bg-white py-4 px-4 border-t border-gray-200 mt-auto">
         <div className="flex justify-between items-center">
-          <Link to="/" className="flex flex-col items-center">
-            <img src="https://img.icons8.com/ios-filled/25/000000/home.png" alt="Home" className="h-6 w-6" />
+          <Link to="/" className="flex flex-col items-center" style={{ color: location.pathname === '/' ? 'black' : 'gray' }}>
+            <FontAwesomeIcon icon={faHome} className="h-6 w-6" />
             <span className="text-sm">Home</span>
           </Link>
-          <Link to="/activity" className="flex flex-col items-center">
-            <img src="https://img.icons8.com/ios-filled/25/000000/activity-feed.png" alt="Activity" className="h-6 w-6" />
+          <Link to="/activity" className="flex flex-col items-center" style={{ color: location.pathname === '/activity' ? 'black' : 'gray' }}>
+            <FontAwesomeIcon icon={faClock} className="h-6 w-6" />
             <span className="text-sm">Activity</span>
           </Link>
-          <Link to="/account" className="flex flex-col items-center">
-            <img src="https://img.icons8.com/ios-filled/25/000000/user.png" alt="Account" className="h-6 w-6" />
+          <Link to="/account" className="flex flex-col items-center" style={{ color: location.pathname === '/account' ? 'black' : 'gray' }}>
+            <FontAwesomeIcon icon={faUser} className="h-6 w-6" />
             <span className="text-sm">Account</span>
           </Link>
         </div>

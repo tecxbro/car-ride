@@ -5,6 +5,7 @@ import SearchPage from './pages/SearchPage';
 import LoginRegisterPage from './pages/LoginRegisterPage';
 import BookingConfirmationPage from './pages/BookingConfirmationPage';
 import MyRidesPage from './pages/MyRidesPage';
+import ActivityPage from './pages/ActivityPage'; // Import ActivityPage
 import { AuthContext } from './context/AuthContext';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/search" element={<SearchPage setSelectedRide={setSelectedRide} />} />
           <Route path="/login" element={<LoginRegisterPage />} />
+          <Route path="/activity" element={<ActivityPage />} /> {/* Add ActivityPage Route */}
           <Route
             path="/booking-confirmation"
             element={
